@@ -1,54 +1,68 @@
 
-# 🚀 MERN Team Task Manager
+# 🚀 TaskFlow — MERN Team Task Manager
 
-A full-stack collaborative task management application built using the **MERN Stack** that allows teams to manage projects, assign tasks, and track progress efficiently.
+🔗 Live Demo: https://taskflow-vercel-frontend.vercel.app
 
-This project is designed as a simplified version of tools like Trello and Asana with authentication, role-based access control, dashboard analytics, and project collaboration features.
+TaskFlow is a modern full-stack team collaboration and task management platform built using the MERN Stack.
+It helps teams organize projects, assign tasks, monitor progress, and improve productivity through an intuitive and responsive interface.
+
+The application is inspired by productivity tools like Trello and Asana, providing seamless project management with authentication, dashboards, analytics, and role-based access control.
 
 ---
 
-# 📌 Features
+# ✨ Features
 
-## 🔐 Authentication & Authorization
+## 🔐 Authentication & Security
 
 * User Signup & Login
-* JWT-based Authentication
-* Password Hashing using bcrypt
+* JWT Authentication
 * Protected Routes
-* Role-Based Access Control
+* Password Encryption using bcrypt
+* Persistent User Sessions
 
 ---
 
-## 📁 Project Management
+# 👥 Team & Project Management
 
-* Create Projects
-* Add/Remove Team Members
-* Admin & Member Roles
-* View Joined Projects
+* Create and Manage Projects
+* Invite Team Members
+* Role-Based Permissions
+* Admin & Member Access Levels
+* Collaborative Workflow Management
 
 ---
 
-## ✅ Task Management
+# ✅ Task Management
 
 * Create Tasks
 * Assign Tasks to Team Members
-* Set Priority Levels
+* Task Priority Levels
+* Task Deadlines
 * Update Task Status
 
   * To Do
   * In Progress
-  * Done
-* Due Date Tracking
+  * Completed
 
 ---
 
-## 📊 Dashboard Analytics
+# 📊 Dashboard & Analytics
 
 * Total Tasks Overview
 * Tasks by Status
-* Overdue Tasks
-* Tasks Per User
-* Project Statistics
+* Overdue Task Tracking
+* User Productivity Insights
+* Real-Time Project Monitoring
+
+---
+
+# 🎨 Modern UI/UX
+
+* Responsive Design
+* Clean Dashboard Interface
+* Mobile-Friendly Layout
+* Interactive Components
+* Smooth Navigation Experience
 
 ---
 
@@ -70,12 +84,18 @@ This project is designed as a simplified version of tools like Trello and Asana 
 * Mongoose
 * JWT Authentication
 
+## Deployment
+
+* Frontend: Vercel
+* Backend: Railway
+* Database: MongoDB Atlas
+
 ---
 
-# 📂 Project Structure
+# 📂 Folder Structure
 
 ```bash
-mern-team-task-manager/
+taskflow/
 │
 ├── backend/
 │   ├── config/
@@ -83,17 +103,16 @@ mern-team-task-manager/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── server.js
-│   └── package.json
+│   ├── utils/
+│   └── server.js
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
-│   │   ├── services/
 │   │   ├── context/
+│   │   ├── services/
 │   │   └── App.jsx
-│   └── package.json
 │
 └── README.md
 ```
@@ -105,8 +124,8 @@ mern-team-task-manager/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone <your-repository-url>
-cd mern-team-task-manager
+git clone <your-github-repository-url>
+cd taskflow
 ```
 
 ---
@@ -133,13 +152,13 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-## Run Backend Server
+## Start Backend Server
 
 ```bash
 npm run dev
 ```
 
-Backend will run on:
+Backend runs on:
 
 ```bash
 http://localhost:5000
@@ -161,13 +180,13 @@ cd frontend
 npm install
 ```
 
-## Run Frontend
+## Start Frontend
 
 ```bash
 npm run dev
 ```
 
-Frontend will run on:
+Frontend runs on:
 
 ```bash
 http://localhost:5173
@@ -179,30 +198,30 @@ http://localhost:5173
 
 ## Authentication
 
-| Method | Endpoint           | Description   |
-| ------ | ------------------ | ------------- |
-| POST   | `/api/auth/signup` | Register User |
-| POST   | `/api/auth/login`  | Login User    |
+| Method | Endpoint             | Description   |
+| ------ | -------------------- | ------------- |
+| POST   | `/api/auth/register` | Register User |
+| POST   | `/api/auth/login`    | Login User    |
 
 ---
 
 ## Projects
 
-| Method | Endpoint                    | Description       |
-| ------ | --------------------------- | ----------------- |
-| POST   | `/api/projects`             | Create Project    |
-| GET    | `/api/projects`             | Get User Projects |
-| PUT    | `/api/projects/:id/members` | Add Members       |
+| Method | Endpoint                    | Description    |
+| ------ | --------------------------- | -------------- |
+| POST   | `/api/projects`             | Create Project |
+| GET    | `/api/projects`             | Get Projects   |
+| PUT    | `/api/projects/:id/members` | Add Members    |
 
 ---
 
 ## Tasks
 
-| Method | Endpoint                        | Description        |
-| ------ | ------------------------------- | ------------------ |
-| POST   | `/api/tasks`                    | Create Task        |
-| GET    | `/api/tasks/project/:projectId` | Get Project Tasks  |
-| PUT    | `/api/tasks/:id/status`         | Update Task Status |
+| Method | Endpoint                | Description        |
+| ------ | ----------------------- | ------------------ |
+| POST   | `/api/tasks`            | Create Task        |
+| GET    | `/api/tasks/:projectId` | Get Tasks          |
+| PUT    | `/api/tasks/:id/status` | Update Task Status |
 
 ---
 
@@ -210,28 +229,16 @@ http://localhost:5173
 
 ## 👑 Admin
 
-* Manage Projects
-* Add/Remove Members
+* Manage Team Members
 * Create/Edit/Delete Tasks
+* Manage Projects
 * Assign Tasks
 
 ## 👤 Member
 
 * View Assigned Tasks
-* Update Task Status
-* Access Joined Projects
-
----
-
-# 📈 Future Improvements
-
-* Real-time Notifications using Socket.io
-* Drag & Drop Kanban Board
-* File Uploads
-* Activity Logs
-* Email Notifications
-* Dark Mode
-* Search & Filters
+* Update Task Progress
+* Collaborate within Projects
 
 ---
 
@@ -240,33 +247,36 @@ http://localhost:5173
 ## Frontend Deployment
 
 * Vercel
-* Railway
 
 ## Backend Deployment
 
 * Railway
-* Render
 
-## Database
+## Database Hosting
 
 * MongoDB Atlas
 
 ---
 
-# 🌐 Deployment Steps on Railway
+# 🌐 Live Project
 
-1. Push project to GitHub
-2. Create new Railway project
-3. Connect GitHub repository
-4. Add environment variables
-5. Deploy backend and frontend
-6. Connect frontend API with backend URL
+👉 https://taskflow-vercel-frontend.vercel.app
 
 ---
 
-# 🧪 Testing
+# 📈 Future Improvements
 
-You can test APIs using:
+* Real-Time Notifications
+* Drag & Drop Kanban Board
+* Socket.io Integration
+* File Upload Support
+* Email Notifications
+* Dark Mode
+* Team Chat System
+
+---
+
+# 🧪 Testing Tools
 
 * Postman
 * Thunder Client
@@ -287,4 +297,4 @@ This project is licensed under the MIT License.
 
 # ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub.
+If you found this project helpful, consider giving it a ⭐ on GitHub.
